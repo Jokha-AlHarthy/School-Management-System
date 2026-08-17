@@ -10,6 +10,7 @@ public class Student extends Person{
     private double feeBalance;
     private boolean isScholarship;
     private int subjectCount= 0;
+    private int recordCount = 0;
 
     public Student(String personId, String firstName, String lastName, String dateOfBirth, String gender, int phoneNumber, String email, String address, int nationalId, int age, String activeStatus) {
         super(personId, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, nationalId, age, activeStatus);
@@ -60,4 +61,27 @@ public class Student extends Person{
         }
     }
 
+    //addRecordId(...) and getRecordCount()
+    public void addRecordId(String recordId){
+        if(recordId != null && recordCount < pastCourseRecord.length){
+            pastCourseRecord[recordCount] = recordId;
+            recordCount++;
+        }
+    }
+
+    public int getRecordCount(){
+        return recordCount;
+    }
+
+
+    //addToBalance(...) and clearBalance()
+    public void addToBalance(double amount){
+        if(amount > 0){
+            this.feeBalance +=amount;
+        }
+    }
+
+    public void clearBalance(){
+        this.feeBalance = 0.0;
+    }
 }
