@@ -23,4 +23,19 @@ public class Student extends Person{
         this.feeBalance = feeBalance;
         this.isScholarship = isScholarship;
     }
+
+    //@Override displayInfo() adding the student details
+    @Override
+    public void displayInfo() {
+        System.out.println("Student{" +
+                "gradeLevel='" + gradeLevel + '\'' +
+                ", enrollmentDate='" + enrollmentDate + '\'' +
+                ", enrolledSubjects=" + enrolledSubjects +
+                ", pastCourseRecord=" + pastCourseRecord +
+                ", studentId='" + studentId + '\'' +
+                ", feeBalance=" + feeBalance +
+                ", isScholarship=" + isScholarship +
+                '}');
+    }
+
 }
