@@ -124,4 +124,32 @@ public class Person {
     public void setActiveStatus(String activeStatus) {
         this.activeStatus = activeStatus;
     }
+
+    //displayInfo()
+    public void displayInfo(){
+        System.out.println("Person{" +
+                "personId='" + personId + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", gender='" + gender + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", nationalId=" + nationalId +
+                ", age=" + age +
+                ", activeStatus='" + activeStatus + '\'' +
+                '}');
+    }
+
+    //displaySummary()
+    public void displaySummary(){
+        System.out.println("Person Id: "+personId);
+        System.out.println("Person full name: "+firstName);
+    }
+
+    //getFullName()
+    public void getFullName(){
+        System.out.println(firstName+" "+lastName);
+    }
 }
