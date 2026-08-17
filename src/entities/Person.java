@@ -152,4 +152,36 @@ public class Person {
     public void getFullName(){
         System.out.println(firstName+" "+lastName);
     }
+
+    //toString()
+    @Override
+    public String toString() {
+        return "Person{" +
+                "personId='" + personId + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", gender='" + gender + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                ", nationalId=" + nationalId +
+                ", age=" + age +
+                ", activeStatus='" + activeStatus + '\'' +
+                '}';
+    }
+
+    //equals()
+    public void equals(String id){
+        if(personId.equals(id)){
+            System.out.println("Yes they're equal");
+        }
+    }
+
+    //isAdult()
+    public void isAdult(){
+        if(age>= 18){
+            System.out.println("The person is Adult");
+        }
+    }
 }
