@@ -10,7 +10,8 @@ public class Teacher extends Person{
     private String[] timeSlots;
     private String[]classId;
     private boolean isFormTeacher;
-    private int slotCount;
+    private int slotCount = 0;
+    private int classCount = 0;
 
     //constructor calling super(...) first
     public Teacher(String personId, String firstName, String lastName, String dateOfBirth, String gender, int phoneNumber, String email, String address, int nationalId, int age, String activeStatus) {
@@ -67,4 +68,24 @@ public class Teacher extends Person{
         return false;
     }
 
+    //assignClass(...) and getClassLoad()
+    public void assignClass(String classAssign){
+        if(classAssign != null && classCount < classId.length){
+            classId[classCount] = classAssign;
+            classCount++;
+        }
+    }
+
+    public int getClassLoad(){
+        return classCount;
+    }
+
+    //raiseSalary(...) — increase salary by an amount, with validation
+    public void raiseSalary(double amount){
+        if(amount > 0){
+            this.salary+=amount;
+        }else{
+            System.out.println("Invalid raised salary");
+        }
+    }
 }
