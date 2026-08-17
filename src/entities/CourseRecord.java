@@ -1,6 +1,6 @@
 package entities;
 
-public class CourseRecord extends Teacher{
+public class CourseRecord {
     //Attributes
     private String recordId;
     private String studentId;
@@ -8,12 +8,21 @@ public class CourseRecord extends Teacher{
     private String term;
     private String grade;
     private String remarks;
-    private String notes;
+    private String [] notes;
     private boolean isFinalized;
+    private int notesCount;
 
     //Full constructor
-    public CourseRecord(String personId, String firstName, String lastName, String dateOfBirth, String gender, int phoneNumber, String email, String address, int nationalId, int age, String activeStatus) {
-        super(personId, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, nationalId, age, activeStatus);
+    public CourseRecord(String recordId, String studentId, String teacherId, String term, String grade, String remarks, String[] notes, boolean isFinalized, int notesCount) {
+        this.recordId = recordId;
+        this.studentId = studentId;
+        this.teacherId = teacherId;
+        this.term = term;
+        this.grade = grade;
+        this.remarks = remarks;
+        this.notes = new String[10];
+        this.isFinalized = isFinalized;
+        this.notesCount = 0;
     }
 
     //getters and setters
@@ -65,19 +74,46 @@ public class CourseRecord extends Teacher{
         this.remarks = remarks;
     }
 
-    public String getNotes() {
+    public String[] getNotes() {
         return notes;
     }
 
-    public void setNotes(String notes) {
+    public void setNotes(String[] notes) {
         this.notes = notes;
-    }
-
-    public boolean isFinalized() {
-        return isFinalized;
     }
 
     public void setFinalized(boolean finalized) {
         isFinalized = finalized;
+    }
+
+    //displayInfo()
+    public void displayInfo() {
+        System.out.println("CourseRecord{" +
+                "recordId='" + recordId + '\'' +
+                ", studentId='" + studentId + '\'' +
+                ", teacherId='" + teacherId + '\'' +
+                ", term='" + term + '\'' +
+                ", grade='" + grade + '\'' +
+                ", remarks='" + remarks + '\'' +
+                ", notes='" + notes + '\'' +
+                ", isFinalized=" + isFinalized +
+                '}');
+    }
+
+    //appendNote(...)
+    public void appendNote(String note){
+        if(note != null && notesCount < notes.length){
+            notes[notesCount] = note;
+            notesCount++;
+        }
+    }
+
+    //finalizeRecord() and isFinalized()
+    public void finalizeRecord(){
+        this.isFinalized = true;
+    }
+
+    public boolean isFinalized(){
+       return isFinalized;
     }
 }
