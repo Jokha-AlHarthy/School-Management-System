@@ -1,6 +1,7 @@
 package entities;
 
 import interfaces.Displayable;
+import utils.HelperUtils;
 
 public class Enrollment implements Displayable {
     //Attributes
@@ -30,7 +31,7 @@ public class Enrollment implements Displayable {
     }
 
     public void setEnrollmentId(String enrollmentId) {
-        if(enrollmentId==null || enrollmentId.trim().isEmpty()){
+        if(!HelperUtils.isValidText(enrollmentId)){
             System.out.println("The enrollment Id can't be empty..");
         }else{
             this.enrollmentId = enrollmentId;
@@ -123,6 +124,11 @@ public class Enrollment implements Displayable {
                 ", reason='" + reason + '\'' +
                 ", isRepeat=" + isRepeat +
                 '}');
+    }
+
+    @Override
+    public void displaySummary() {
+        System.out.println(enrollmentId+"-"+studentId+""+status);
     }
 
     //cancel(), complete() — each changes status

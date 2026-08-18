@@ -1,6 +1,7 @@
 package entities;
 
 import interfaces.Displayable;
+import utils.HelperUtils;
 
 public class Person implements Displayable {
     //Attributes
@@ -9,7 +10,7 @@ public class Person implements Displayable {
     private String lastName;
     private String dateOfBirth;
     private String gender;
-    private int phoneNumber;
+    private String phoneNumber;
     private String email;
     private String address;
     private int nationalId;
@@ -17,7 +18,9 @@ public class Person implements Displayable {
     private String  activeStatus;
 
     //Full constructor covering all attributes
-    public Person(String personId, String firstName, String lastName, String dateOfBirth, String gender, int phoneNumber, String email, String address, int nationalId, int age, String activeStatus) {
+
+
+    public Person(String personId, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, int nationalId, int age, String activeStatus) {
         this.personId = personId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -56,7 +59,7 @@ public class Person implements Displayable {
     }
 
     public void setFirstName(String firstName) {
-        if(firstName==null || firstName.trim().isEmpty()){
+        if(!HelperUtils.isValidText(firstName)){
             System.out.println("Please enter your first name..");
         }else{
             this.firstName = firstName;
@@ -68,7 +71,7 @@ public class Person implements Displayable {
     }
 
     public void setLastName(String lastName) {
-        if(lastName==null || lastName.trim().isEmpty()){
+        if(!HelperUtils.isValidText(lastName)){
             System.out.println("Please enter your last name..");
         }else{
             this.lastName = lastName;
@@ -91,11 +94,14 @@ public class Person implements Displayable {
         this.gender = gender;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
+        if(!HelperUtils.isValidPhone(phoneNumber)){
+            System.out.println("Invalid phone number");
+        }
         this.phoneNumber = phoneNumber;
     }
 
@@ -128,7 +134,7 @@ public class Person implements Displayable {
     }
 
     public void setAge(int age) {
-        if(age >= 0 && age<=120){
+        if(!HelperUtils.isValidAge(age)){
             System.out.println("The should be around 0 up to 120");
         }else{
             this.age = age;

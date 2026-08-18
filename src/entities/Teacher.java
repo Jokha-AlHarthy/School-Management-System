@@ -1,6 +1,7 @@
 package entities;
 
 import interfaces.Displayable;
+import utils.HelperUtils;
 
 import java.util.Arrays;
 
@@ -16,7 +17,7 @@ public class Teacher extends Person implements Displayable {
     private int classCount = 0;
 
     //constructor calling super(...) first
-    public Teacher(String personId, String firstName, String lastName, String dateOfBirth, String gender, int phoneNumber, String email, String address, int nationalId, int age, String activeStatus) {
+    public Teacher(String personId, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, int nationalId, int age, String activeStatus) {
         super(personId, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, nationalId, age, activeStatus);
         this.subject = subject;
         this.experienceYears = experienceYears;
@@ -32,6 +33,9 @@ public class Teacher extends Person implements Displayable {
     }
 
     public void setSubject(String subject) {
+        if(!HelperUtils.isValidText(subject)){
+            System.out.println("Subject entered is invalid..");
+        }
         this.subject = subject;
     }
 
@@ -51,7 +55,7 @@ public class Teacher extends Person implements Displayable {
     }
 
     public void setSalary(double salary) {
-        if(salary<0){
+        if(!HelperUtils.isPositive(salary)){
             System.out.println("The salary can't be below 0");
         }
         this.salary= salary;
