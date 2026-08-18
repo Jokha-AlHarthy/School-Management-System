@@ -16,6 +16,83 @@ public class Teacher extends Person{
     //constructor calling super(...) first
     public Teacher(String personId, String firstName, String lastName, String dateOfBirth, String gender, int phoneNumber, String email, String address, int nationalId, int age, String activeStatus) {
         super(personId, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, nationalId, age, activeStatus);
+        this.subject = subject;
+        this.experienceYears = experienceYears;
+        this.salary = salary;
+        this.timeSlots = new String[10];
+        this.classId =  new String[10];
+        this.isFormTeacher = isFormTeacher;
+    }
+
+    //Getters & setters
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public int getExperienceYears() {
+        return experienceYears;
+    }
+
+    public void setExperienceYears(int experienceYears) {
+        if(experienceYears < 0){
+            System.out.println("The experience can't be below 0");
+        }
+        this.experienceYears = experienceYears;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        if(salary<0){
+            System.out.println("The salary can't be below 0");
+        }
+        this.salary= salary;
+    }
+
+    public String[] getTimeSlots() {
+        return timeSlots;
+    }
+
+    public void setTimeSlots(String[] timeSlots) {
+        this.timeSlots = timeSlots;
+    }
+
+    public String[] getClassId() {
+        return classId;
+    }
+
+    public void setClassId(String[] classId) {
+        this.classId = classId;
+    }
+
+    public boolean isFormTeacher() {
+        return isFormTeacher;
+    }
+
+    public void setFormTeacher(boolean formTeacher) {
+        isFormTeacher = formTeacher;
+    }
+
+    public int getSlotCount() {
+        return slotCount;
+    }
+
+    public void setSlotCount(int slotCount) {
+        this.slotCount = slotCount;
+    }
+
+    public int getClassCount() {
+        return classCount;
+    }
+
+    public void setClassCount(int classCount) {
+        this.classCount = classCount;
     }
 
     //@Override displayInfo()
