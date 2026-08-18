@@ -90,4 +90,13 @@ public class Enrollment {
                 ", isRepeat=" + isRepeat +
                 '}');
     }
+
+    //cancel(), complete() — each changes status
+    public void cancel(){
+        System.out.println("Cancelled");
+    }
+
+    public void complete(){
+        System.out.println("Completed");
+    }
 }
