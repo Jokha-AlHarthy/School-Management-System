@@ -9,6 +9,7 @@ public class Enrollment {
     private String status;
     private String reason;
     private boolean isRepeat;
+    private String notes;
 
     //full constructor
     public Enrollment(String enrollmentId, String studentId, String courseId, String enrollDate, String status, String reason, boolean isRepeat) {
@@ -101,6 +102,14 @@ public class Enrollment {
         isRepeat = repeat;
     }
 
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
     //displayInfo()
     public void displayInfo(){
         System.out.println("Enrollment{" +
@@ -137,4 +146,26 @@ public class Enrollment {
         }
         return enrollDate.compareTo(givenDate) < 0;
     }
+
+    //addNotes - notes only
+    public void addNotes(String note){
+        if(note != null && note.trim().isEmpty()){
+            if(!this.notes.isEmpty()){
+                this.notes+= " | ";
+            }
+            this.notes += note;
+        }
+    }
+
+    //addNotes - notes +  notes with author
+    public void addNotes(String note, String notesAuthor){
+        if(note != null && note.trim().isEmpty()){
+            if(!this.notes.isEmpty()){
+                this.notes+= " | ";
+            }
+            this.notes += note + "By author"+notesAuthor;
+        }
+    }
+
+
 }
