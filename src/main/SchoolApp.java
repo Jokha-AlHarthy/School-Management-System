@@ -35,4 +35,19 @@ public class SchoolApp {
         System.out.println("Senior Student: "+seniorStudentCount);
         System.out.println("Students: "+studentCount);
     }
+
+    //findOldest(...)
+    public static Person findOldest(Person[]people, int count){
+        if(people==null || count ==0){
+            return null;
+        }
+        Person oldest = people[0];
+        for(int i=1; i < count; i++){
+            if(people[i].getAge()>oldest.getAge()){
+                oldest = people[i];
+            }
+
+        }
+        return oldest;
+    }
 }
