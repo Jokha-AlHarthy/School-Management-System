@@ -23,6 +23,88 @@ public class Student extends Person{
         this.isScholarship = isScholarship;
     }
 
+
+    //Getters & setters
+    public String getGradeLevel() {
+        return gradeLevel;
+    }
+
+    public void setGradeLevel(String gradeLevel) {
+        if(gradeLevel == null || gradeLevel.trim().isEmpty()){
+            System.out.println("Grade level can't be empty..");
+        }
+        this.gradeLevel = gradeLevel;
+    }
+
+    public String getEnrollmentDate() {
+        return enrollmentDate;
+    }
+
+    public void setEnrollmentDate(String enrollmentDate) {
+        if(enrollmentDate==null || enrollmentDate.trim().isEmpty()){
+            System.out.println("The enrollment can't be empty");
+        }
+        this.enrollmentDate = enrollmentDate;
+    }
+
+    public String[] getEnrolledSubjects() {
+        return enrolledSubjects;
+    }
+
+    public void setEnrolledSubjects(String[] enrolledSubjects) {
+        this.enrolledSubjects = enrolledSubjects;
+    }
+
+    public String[] getPastCourseRecord() {
+        return pastCourseRecord;
+    }
+
+    public void setPastCourseRecord(String[] pastCourseRecord) {
+        this.pastCourseRecord = pastCourseRecord;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        if(studentId==null || studentId.trim().isEmpty()){
+            System.out.println("The student Id can't be empty..");
+        }
+        this.studentId = studentId;
+    }
+
+    public double getFeeBalance() {
+        return feeBalance;
+    }
+
+    public void setFeeBalance(double feeBalance) {
+        if(feeBalance<0){
+            System.out.println("The fee can't be 0");
+        }
+        this.feeBalance = feeBalance;
+    }
+
+    public boolean isScholarship() {
+        return isScholarship;
+    }
+
+    public void setScholarship(boolean scholarship) {
+        isScholarship = scholarship;
+    }
+
+    public int getSubjectCount() {
+        return subjectCount;
+    }
+
+    public void setSubjectCount(int subjectCount) {
+        this.subjectCount = subjectCount;
+    }
+
+    public void setRecordCount(int recordCount) {
+        this.recordCount = recordCount;
+    }
+
     //@Override displayInfo() adding the student details
     @Override
     public void displayInfo() {
