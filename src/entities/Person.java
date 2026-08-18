@@ -126,7 +126,11 @@ public class Person {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        if(age >= 0 && age<=120){
+            System.out.println("The should be around 0 up to 120");
+        }else{
+            this.age = age;
+        }
     }
 
     public String getActiveStatus() {
