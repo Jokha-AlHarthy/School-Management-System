@@ -166,4 +166,15 @@ public class Student extends Person{
     public void clearBalance(){
         this.feeBalance = 0.0;
     }
+
+    //overload updateContact - phone only
+    public void updateContact(int phone){
+        setPhoneNumber(phone);
+    }
+
+    //overload updateContact - phone and email
+    public void updateContact(int phone, String email){
+        setPhoneNumber(phone);
+    }
+
 }

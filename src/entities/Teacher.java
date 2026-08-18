@@ -165,4 +165,15 @@ public class Teacher extends Person{
             System.out.println("Invalid raised salary");
         }
     }
+
+    //updateSalary - only salary
+    public void updateSalary(double newSalary){
+        setSalary(newSalary);
+    }
+
+    //updateSalary - only salary and reason
+    public void updateSalary(double newSalary, String reason){
+        setSalary(newSalary);
+        System.out.println("New Salary"+newSalary+"raised because "+reason);
+    }
 }
