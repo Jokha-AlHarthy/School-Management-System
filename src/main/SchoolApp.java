@@ -1,6 +1,6 @@
 package main;
 
-import entities.Person;
+import entities.*;
 
 public class SchoolApp {
 
@@ -9,5 +9,30 @@ public class SchoolApp {
         for(int i= 0; i < count; i++){
             people[i].displayInfo();
         }
+    }
+
+    //countByType(...) — count how many are Student, Teacher (use instanceof, most specific first
+    public static void countByType(Person []people, int count){
+        int studentCount = 0;
+        int teacherCount = 0;
+        int seniorStudentCount = 0;
+        int headTeacherCount = 0;
+
+        for(int i=0; i < count; i++){
+            Person p = people[i];
+            if(p instanceof HeadTeacher){
+                headTeacherCount++
+            }else if(p instanceof Teacher){
+                teacherCount++;
+            }else if(p instanceof SeniorStudent){
+                seniorStudentCount++;
+            }else if(p instanceof Student){
+                studentCount++;
+            }
+        }
+        System.out.println("Head Teacher: "+headTeacherCount);
+        System.out.println("Teachers: "+teacherCount);
+        System.out.println("Senior Student: "+seniorStudentCount);
+        System.out.println("Students: "+studentCount);
     }
 }
