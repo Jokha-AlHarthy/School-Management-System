@@ -52,4 +52,31 @@ public class HelperUtils {
     public static boolean isInRange(int value, int min, int max){
         return value >= min && value<=max;
     }
+
+    //isValidAge (0–120)
+    public static boolean isValidAge(int age){
+        return age >= 0 && age <= 120;
+    }
+
+    // isValidPhone (length only)
+    public static boolean isValidPhone(String phone){
+        if(isEmpty(phone)){
+            return false;
+        }
+        int length = phone.trim().length();
+        return length <= 8;
+    }
+
+    // isOneOf (value against an allowed set you pass in without generics)
+    public static boolean isOneOf(String value, String[]allowed){
+        if(value==null || allowed==null ){
+            return false;
+        }
+        for(int i=0; i < allowed.length; i++){
+            if(allowed[i] != null && allowed[i].equalsIgnoreCase(value.trim())){
+                return true;
+            }
+        }
+        return false;
+    }
 }
