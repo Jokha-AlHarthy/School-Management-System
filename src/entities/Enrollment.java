@@ -78,6 +78,10 @@ public class Enrollment {
         if(status==null || status.trim().isEmpty()){
             System.out.println("The status can't be empty..");
         }
+
+        if(!status.equalsIgnoreCase("Cancelled") && !status.equalsIgnoreCase("Completed") && !status.equalsIgnoreCase("Transfered") && !status.equalsIgnoreCase("Active")){
+            System.out.println("Please only enter one word.. Active | Cancelled | Completed | Transfered");
+        }
         this.status = status;
     }
 
