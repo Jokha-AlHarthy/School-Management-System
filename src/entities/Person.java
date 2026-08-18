@@ -1,6 +1,8 @@
 package entities;
 
-public class Person {
+import interfaces.Displayable;
+
+public class Person implements Displayable {
     //Attributes
     private String personId;
     private String firstName;

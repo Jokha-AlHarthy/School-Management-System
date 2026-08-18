@@ -1,6 +1,8 @@
 package entities;
 
-public class Student extends Person{
+import interfaces.Displayable;
+
+public class Student extends Person implements Displayable {
     //Attributes
     private String gradeLevel;
     private String enrollmentDate;

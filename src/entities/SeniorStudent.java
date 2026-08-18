@@ -1,6 +1,8 @@
 package entities;
 
-public class SeniorStudent extends Student{
+import interfaces.Displayable;
+
+public class SeniorStudent extends Student implements Displayable {
     //Attributes
     private String major;
     private double gpa;

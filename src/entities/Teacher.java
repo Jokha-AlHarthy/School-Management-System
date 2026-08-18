@@ -1,8 +1,10 @@
 package entities;
 
+import interfaces.Displayable;
+
 import java.util.Arrays;
 
-public class Teacher extends Person{
+public class Teacher extends Person implements Displayable {
     //Attributes
     private String subject;
     private int experienceYears;

@@ -1,6 +1,8 @@
 package entities;
 
-public class CourseRecord {
+import interfaces.Displayable;
+
+public class CourseRecord implements Displayable {
     //Attributes
     private String recordId;
     private String studentId;

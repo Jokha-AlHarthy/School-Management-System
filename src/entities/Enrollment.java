@@ -1,6 +1,8 @@
 package entities;
 
-public class Enrollment {
+import interfaces.Displayable;
+
+public class Enrollment implements Displayable {
     //Attributes
     private String enrollmentId;
     private String studentId;

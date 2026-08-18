@@ -1,8 +1,10 @@
 package entities;
 
+import interfaces.Displayable;
+
 import java.util.Arrays;
 
-public class HeadTeacher extends Teacher{
+public class HeadTeacher extends Teacher implements Displayable {
     //Attributes
     private int teachersManaged;
     private boolean adminOfficeAccess;
