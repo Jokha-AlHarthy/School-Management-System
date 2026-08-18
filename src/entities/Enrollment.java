@@ -27,7 +27,11 @@ public class Enrollment {
     }
 
     public void setEnrollmentId(String enrollmentId) {
-        this.enrollmentId = enrollmentId;
+        if(enrollmentId==null || enrollmentId.trim().isEmpty()){
+            System.out.println("The enrollment Id can't be empty..");
+        }else{
+            this.enrollmentId = enrollmentId;
+        }
     }
 
     public String getStudentId() {
@@ -35,7 +39,11 @@ public class Enrollment {
     }
 
     public void setStudentId(String studentId) {
-        this.studentId = studentId;
+        if(studentId==null || studentId.trim().isEmpty()){
+            System.out.println("The student Id can't be empty");
+        }else{
+            this.studentId = studentId;
+        }
     }
 
     public String getCourseId() {
@@ -43,7 +51,11 @@ public class Enrollment {
     }
 
     public void setCourseId(String courseId) {
-        this.courseId = courseId;
+        if(courseId == null || courseId.trim().isEmpty()){
+            System.out.println("The course Id can't be empty");
+        }else{
+            this.courseId = courseId;
+        }
     }
 
     public String getEnrollDate() {
@@ -51,7 +63,11 @@ public class Enrollment {
     }
 
     public void setEnrollDate(String enrollDate) {
-        this.enrollDate = enrollDate;
+        if(enrollDate==null || enrollDate.trim().isEmpty()){
+            System.out.println("The enrolled date can't be empty");
+        }else{
+            this.enrollDate = enrollDate;
+        }
     }
 
     public String getStatus() {
@@ -59,6 +75,9 @@ public class Enrollment {
     }
 
     public void setStatus(String status) {
+        if(status==null || status.trim().isEmpty()){
+            System.out.println("The status can't be empty..");
+        }
         this.status = status;
     }
 

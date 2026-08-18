@@ -42,7 +42,11 @@ public class Person {
     }
 
     public void setPersonId(String personId) {
-        this.personId = personId;
+        if(personId==null || personId.trim().isEmpty()){
+            System.out.println("Please enter the id..");
+        }else{
+            this.personId = personId;
+        }
     }
 
     public String getFirstName() {
@@ -50,7 +54,11 @@ public class Person {
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        if(firstName==null || firstName.trim().isEmpty()){
+            System.out.println("Please enter your first name..");
+        }else{
+            this.firstName = firstName;
+        }
     }
 
     public String getLastName() {
@@ -58,7 +66,11 @@ public class Person {
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        if(lastName==null || lastName.trim().isEmpty()){
+            System.out.println("Please enter your last name..");
+        }else{
+            this.lastName = lastName;
+        }
     }
 
     public String getDateOfBirth() {
@@ -122,7 +134,11 @@ public class Person {
     }
 
     public void setActiveStatus(String activeStatus) {
-        this.activeStatus = activeStatus;
+        if(activeStatus == null || activeStatus.trim().isEmpty()){
+            System.out.println("The status is not completed..");
+        }else{
+            this.activeStatus =activeStatus;
+        }
     }
 
     //displayInfo()

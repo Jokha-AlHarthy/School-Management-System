@@ -31,7 +31,11 @@ public class CourseRecord {
     }
 
     public void setRecordId(String recordId) {
-        this.recordId = recordId;
+        if(recordId==null || recordId.trim().isEmpty()){
+            System.out.println("The record id can't be empty..");
+        }else{
+            this.recordId = recordId;
+        }
     }
 
     public String getStudentId() {
@@ -39,7 +43,11 @@ public class CourseRecord {
     }
 
     public void setStudentId(String studentId) {
-        this.studentId = studentId;
+        if(studentId==null || studentId.trim().isEmpty()){
+            System.out.println("The student Id can't be empty");
+        }else{
+            this.studentId = studentId;
+        }
     }
 
     public String getTeacherId() {
@@ -47,7 +55,11 @@ public class CourseRecord {
     }
 
     public void setTeacherId(String teacherId) {
-        this.teacherId = teacherId;
+        if(teacherId==null || teacherId.trim().isEmpty()){
+            System.out.println("The teacher Id can't be empty..");
+        }else{
+            this.teacherId = teacherId;
+        }
     }
 
     public String getTerm() {
