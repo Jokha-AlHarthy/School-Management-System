@@ -1,8 +1,10 @@
 package services;
 
 import entities.Student;
+import interfaces.Manageable;
+import interfaces.Searchable;
 
-public class StudentService {
+public class StudentService implements Manageable, Searchable {
 
     // three versions basic details
     public void addStudent(String id, String firstName, String lastName){

@@ -3,8 +3,10 @@ package services;
 import entities.CourseRecord;
 import entities.Enrollment;
 import entities.Student;
+import interfaces.Manageable;
+import interfaces.Searchable;
 
-public class EnrollmentService {
+public class EnrollmentService implements Manageable, Searchable {
     private Enrollment[] enorllments =  new Enrollment[50];
     private int count = 0;
 
