@@ -99,4 +99,19 @@ public class Enrollment {
     public void complete(){
         System.out.println("Completed");
     }
+
+    //transfer(...)
+    public void transfer(String newCourseId, String newEnrolledDate){
+        this.courseId = newCourseId;
+        this.enrollDate = newEnrolledDate;
+        this.status = "Transfered";
+    }
+
+    //isPast(...)
+    public boolean isPast(String givenDate){
+        if(enrollDate == null || givenDate == null){
+            return false;
+        }
+        return enrollDate.compareTo(givenDate) < 0;
+    }
 }
