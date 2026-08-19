@@ -32,9 +32,10 @@ public class SchoolApp {
                     handleTeachers();
                     break;
                 case 3:
-
+                    handleCourses();
                     break;
                 case 4:
+                    handleEnrollments();
                     break;
                 case 5:
                     break;
@@ -122,6 +123,34 @@ public class SchoolApp {
                 break;
             case 3:
                 return;
+        }
+    }
+
+    private void handleCourses() {
+        System.out.println("\n--- Course Management ---");
+        System.out.println("1. View All Courses");
+        System.out.println("2. Back to Main Menu");
+
+        int choice = InputHandler.readInt("Select an option (1-2): ", 1, 2);
+        if (choice == 1) {
+            Object[] courses = courseService.getAll();
+            for (Object obj : courses) {
+                ((CourseRecord) obj).displayInfo();
+            }
+        }
+    }
+
+    private void handleEnrollments() {
+        System.out.println("\n--- Enrollment Management ---");
+        System.out.println("1. View All Enrollments");
+        System.out.println("2. Back to Main Menu");
+
+        int choice = InputHandler.readInt("Select an option (1-2): ", 1, 2);
+        if (choice == 1) {
+            Object[] enrollments = enrollmentService.getAll();
+            for (Object obj : enrollments) {
+                ((Enrollment) obj).displayInfo();
+            }
         }
     }
 
