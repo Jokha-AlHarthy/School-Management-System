@@ -14,7 +14,7 @@ public class Student extends Person implements Displayable {
     private int subjectCount= 0;
     private int recordCount = 0;
 
-    public Student(String personId, String firstName, String lastName, String dateOfBirth, String gender, int phoneNumber, String email, String address, int nationalId, int age, String activeStatus) {
+    public Student(String personId, String firstName, String lastName, String dateOfBirth, String gender, String phoneNumber, String email, String address, int nationalId, int age, String activeStatus) {
         super(personId, firstName, lastName, dateOfBirth, gender, phoneNumber, email, address, nationalId, age, activeStatus);
         this.gradeLevel = gradeLevel;
         this.enrollmentDate = enrollmentDate;
@@ -170,12 +170,12 @@ public class Student extends Person implements Displayable {
     }
 
     //overload updateContact - phone only
-    public void updateContact(int phone){
+    public void updateContact(String phone){
         setPhoneNumber(phone);
     }
 
     //overload updateContact - phone and email
-    public void updateContact(int phone, String email){
+    public void updateContact(String phone, String email){
         setPhoneNumber(phone);
     }
 
