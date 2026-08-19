@@ -26,9 +26,10 @@ public class SchoolApp {
 
             switch (choice) {
                 case 1:
-
+                    handleStudents();
                     break;
                 case 2:
+                    handleTeachers();
                     break;
                 case 3:
 
@@ -53,6 +54,75 @@ public class SchoolApp {
         System.out.println("4. Enrollments");
         System.out.println("5. Reports");
         System.out.println("6. Exit");
+    }
+
+    private void handleStudents() {
+        System.out.println("\n--- Student Management ---");
+        System.out.println("1. View All Students");
+        System.out.println("2. Add Student");
+        System.out.println("3. Search Student");
+        System.out.println("4. Remove Student");
+        System.out.println("5. Back to Main Menu");
+
+        int choice = InputHandler.readInt("Select an option (1-5): ", 1, 5);
+        switch (choice) {
+            case 1:
+                Object[] students = studentService.getAll();
+                for (Object obj : students) {
+                    ((Student) obj).displayInfo();
+                }
+                break;
+            case 2:
+                String id = InputHandler.readText("Enter Student ID: ");
+                String fname = InputHandler.readText("Enter First Name: ");
+                String lname = InputHandler.readText("Enter Last Name: ");
+                studentService.addStudent(id, fname, lname);
+                System.out.println("Student added successfully.");
+                break;
+            case 3:
+                String key = InputHandler.readText("Enter name search keyword: ");
+                Object[] matches = studentService.search(key);
+                for (Object obj : matches) {
+                    ((Student) obj).displayInfo();
+                }
+                break;
+            case 4:
+                String remId = InputHandler.readText("Enter Student ID to remove: ");
+                if (studentService.removeById(remId)) {
+                    System.out.println("Student removed.");
+                } else {
+                    System.out.println("Student ID not found.");
+                }
+                break;
+            case 5:
+                return;
+        }
+    }
+
+    private void handleTeachers() {
+        System.out.println("\n--- Teacher Management ---");
+        System.out.println("1. View All Teachers");
+        System.out.println("2. Search Teacher");
+        System.out.println("3. Back to Main Menu");
+
+        int choice = InputHandler.readInt("Select an option (1-3): ", 1, 3);
+        switch (choice) {
+            case 1:
+                Object[] teachers = teacherService.getAll();
+                for (Object obj : teachers) {
+                    ((Teacher) obj).displayInfo();
+                }
+                break;
+            case 2:
+                String key = InputHandler.readText("Enter teacher search keyword: ");
+                Object[] matches = teacherService.search(key);
+                for (Object obj : matches) {
+                    ((Teacher) obj).displayInfo();
+                }
+                break;
+            case 3:
+                return;
+        }
     }
 
     //printAll(...) — loop once, call displayInfo() on each Person
