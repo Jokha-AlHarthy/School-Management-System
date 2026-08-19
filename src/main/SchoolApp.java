@@ -38,6 +38,7 @@ public class SchoolApp {
                     handleEnrollments();
                     break;
                 case 5:
+                    handleReports();
                     break;
                 case 6:
                     System.out.println("Exiting system. Goodbye!");
@@ -152,6 +153,33 @@ public class SchoolApp {
                 ((Enrollment) obj).displayInfo();
             }
         }
+    }
+
+    private void handleReports() {
+        System.out.println("\n--- Polymorphic Reports ---");
+        Object[] studentObjs = studentService.getAll();
+        Object[] teacherObjs = teacherService.getAll();
+
+        Person[] allPeople = new Person[studentObjs.length + teacherObjs.length];
+        int count = 0;
+
+        for (Object s : studentObjs) allPeople[count++] = (Person) s;
+        for (Object t : teacherObjs) allPeople[count++] = (Person) t;
+
+        System.out.println("\n1. All People Overview:");
+        printAll(allPeople, count);
+
+        System.out.println("\n2. Breakdown by Type:");
+        countByType(allPeople, count);
+
+        Person oldest = findOldest(allPeople, count);
+        if (oldest != null) {
+            System.out.println("\n3. Oldest Person in System:");
+            oldest.displayInfo();
+        }
+
+        System.out.println("\n4. Financial Summary:");
+        System.out.println("Total Outstanding Fees: $" + studentService.totalOutstanding());
     }
 
     //printAll(...) — loop once, call displayInfo() on each Person
