@@ -19,6 +19,7 @@ public class SchoolApp {
     }
 
     public void start() {
+        seedData();
         boolean running = true;
         while (running) {
             displayMainMenu();
@@ -48,6 +49,82 @@ public class SchoolApp {
         }
     }
 
+    private void seedData() {
+        // 1. Seed 6 Students (Mix of Student & SeniorStudent)
+        Student s1 = new Student("ST101", "Alice", "Smith", "2002-05-12", "Female", "91234567", "alice@school.com", "Main St", 1001, 20, "Active");
+        Student s2 = new Student("ST102", "Bob", "Jones", "2001-08-22", "Male", "91234568", "bob@school.com", "High St", 1002, 21, "Active");
+        Student s3 = new Student("ST103", "Charlie", "Brown", "2003-01-15", "Male", "91234569", "charlie@school.com", "Park Ave", 1003, 19, "Active");
+
+        SeniorStudent s4 = new SeniorStudent("ST104", "Diana", "Prince", "1999-11-03", "Female", "91234570", "diana@school.com", "Oak St", 1004, 23, "Active");
+        SeniorStudent s5 = new SeniorStudent("ST105", "Evan", "Wright", "2000-04-18", "Male", "91234571", "evan@school.com", "Pine St", 1005, 22, "Active");
+        SeniorStudent s6 = new SeniorStudent("ST106", "Fiona", "Gallagher", "1998-09-30", "Female", "91234572", "fiona@school.com", "Elm St", 1006, 24, "Active");
+
+        // Set SeniorStudent attributes
+        s4.setMajor("Computer Science");
+        s5.setMajor("Data Science");
+        s6.setMajor("Software Eng");
+
+        // Set fee balances to test totalOutstanding()
+        s1.setFeeBalance(150.0);
+        s2.setFeeBalance(300.0);
+        s4.setFeeBalance(500.0);
+
+        // Add students
+        studentService.addStudent(s1);
+        studentService.addStudent(s2);
+        studentService.addStudent(s3);
+        studentService.addStudent(s4);
+        studentService.addStudent(s5);
+        studentService.addStudent(s6);
+
+        // 2. Seed Teachers & Head Teachers
+        Teacher t1 = new Teacher("T201", "John", "Doe", "1980-03-14", "Male", "98765432", "john@school.com", "Broadway", 2001, 44, "Active");
+        Teacher t2 = new Teacher("T202", "Sarah", "Connor", "1985-07-19", "Female", "98765433", "sarah@school.com", "Main Rd", 2002, 39, "Active");
+        t1.setSubject("Mathematics");
+        t1.setSalary(5000.0);
+        t2.setSubject("Physics");
+        t2.setSalary(5200.0);
+
+        HeadTeacher ht1 = new HeadTeacher("HT203", "Michael", "Scott", "1975-01-15", "Male", "98765434", "michael@school.com", "Dunder St", 2003, 49, "Active");
+        HeadTeacher ht2 = new HeadTeacher("HT204", "Elena", "Rostova", "1978-10-05", "Female", "98765435", "elena@school.com", "Center Ave", 2004, 46, "Active");
+        ht1.setSubject("Administration");
+        ht1.setSalary(7500.0);
+        ht2.setSubject("Mathematics");
+        ht2.setSalary(8000.0);
+
+        teacherService.add(t1);
+        teacherService.add(t2);
+        teacherService.addHeadTeacher(ht1);
+        teacherService.addHeadTeacher(ht2);
+
+        // 3. Seed 5 Course Records (Matches CourseRecord constructor: 9 arguments)
+        CourseRecord c1 = new CourseRecord("CR301", "ST101", "T201", "Fall 2026", "A", "Completed", new String[10], true, 0);
+        CourseRecord c2 = new CourseRecord("CR302", "ST102", "T201", "Fall 2026", "B+", "Completed", new String[10], true, 0);
+        CourseRecord c3 = new CourseRecord("CR303", "ST103", "T202", "Spring 2026", "Pending", "In Progress", new String[10], false, 0);
+        CourseRecord c4 = new CourseRecord("CR304", "ST104", "T202", "Spring 2026", "Pending", "In Progress", new String[10], false, 0);
+        CourseRecord c5 = new CourseRecord("CR305", "ST105", "T201", "Fall 2026", "A-", "Completed", new String[10], true, 0);
+
+        courseService.add(c1);
+        courseService.add(c2);
+        courseService.add(c3);
+        courseService.add(c4);
+        courseService.add(c5);
+
+        // 4. Seed 6 Enrollments (Exercising all 3 overloaded enroll methods)
+        // Overload 1: IDs + date
+        enrollmentService.enroll("ST101", "CR301", "2026-08-01");
+        enrollmentService.enroll("ST102", "CR302", "2026-08-02");
+
+        // Overload 2: IDs + date + term
+        enrollmentService.enroll("ST103", "CR303", "2026-08-03", "Fall 2026");
+        enrollmentService.enroll("ST104", "CR304", "2026-08-04", "Spring 2026");
+
+        // Overload 3: Full objects + reason
+        enrollmentService.enroll(s5, c5, "Prerequisite satisfied");
+        enrollmentService.enroll(s6, c1, "Core elective requirement");
+
+        System.out.println("Sample data successfully seeded into system.");
+    }
     private void displayMainMenu() {
         System.out.println("School Management System");
         System.out.println("1. Students");
