@@ -114,6 +114,11 @@ public class CourseRecord implements Displayable {
                 '}');
     }
 
+    @Override
+    public void displaySummary() {
+        System.out.println(recordId+"-"+studentId+" "+term);
+    }
+
     //appendNote(...)
     public void appendNote(String note){
         if(note != null && notesCount < notes.length){

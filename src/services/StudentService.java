@@ -76,14 +76,14 @@ public class StudentService implements Manageable, Searchable {
     // 1. Basic details
     public boolean addStudent(String id, String firstName, String lastName) {
         Student s = new Student(id, firstName, lastName, "2000-01-01", "Other",
-                0, "unknown@school.test", "unknown", 0, 18, "Active");
+                "0", "unknown@school.test", "unknown", 0, 18, "Active");
         return add(s);
     }
 
     // 2. Details + grade level
     public boolean addStudent(String id, String firstName, String lastName, String gradeLevel) {
         Student s = new Student(id, firstName, lastName, "2000-01-01", "Other",
-                0, "unknown@school.test", "unknown", 0, 18, "Active");
+                "0", "unknown@school.test", "unknown", 0, 18, "Active");
         s.setGradeLevel(gradeLevel);
         return add(s);
     }
@@ -98,7 +98,7 @@ public class StudentService implements Manageable, Searchable {
     public boolean updateContact(String id, int phone, String email) {
         Student s = (Student) searchById(id);
         if (s == null) return false;
-        s.updateContact(phone, email);
+        s.updateContact(String.valueOf(phone), email); // Converted int to String
         return true;
     }
 
