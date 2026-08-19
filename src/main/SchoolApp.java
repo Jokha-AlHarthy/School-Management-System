@@ -1,8 +1,59 @@
 package main;
 
 import entities.*;
+import services.CourseService;
+import services.EnrollmentService;
+import services.StudentService;
+import services.TeacherService;
+import utils.InputHandler;
 
 public class SchoolApp {
+    private final StudentService studentService = new StudentService();
+    private final TeacherService teacherService = new TeacherService();
+    private final CourseService courseService = new CourseService();
+    private final EnrollmentService enrollmentService = new EnrollmentService();
+
+    public static void main(String[] args) {
+        SchoolApp app = new SchoolApp();
+        app.start();
+    }
+
+    public void start() {
+        boolean running = true;
+        while (running) {
+            displayMainMenu();
+            int choice = InputHandler.readInt("Enter your choice (1-6): ", 1, 6);
+
+            switch (choice) {
+                case 1:
+
+                    break;
+                case 2:
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    System.out.println("Exiting system. Goodbye!");
+                    running = false;
+                    break;
+            }
+        }
+    }
+
+    private void displayMainMenu() {
+        System.out.println("School Management System");
+        System.out.println("1. Students");
+        System.out.println("2. Teachers");
+        System.out.println("3. Courses");
+        System.out.println("4. Enrollments");
+        System.out.println("5. Reports");
+        System.out.println("6. Exit");
+    }
 
     //printAll(...) — loop once, call displayInfo() on each Person
     public static void printAll(Person[] people, int count){
@@ -21,7 +72,7 @@ public class SchoolApp {
         for(int i=0; i < count; i++){
             Person p = people[i];
             if(p instanceof HeadTeacher){
-                headTeacherCount++
+                headTeacherCount++;
             }else if(p instanceof Teacher){
                 teacherCount++;
             }else if(p instanceof SeniorStudent){
@@ -50,4 +101,6 @@ public class SchoolApp {
         }
         return oldest;
     }
+
+
 }
